@@ -19,15 +19,16 @@ let guessPhrases = [
 startGame.addEventListener('click', (e) => {
     //BANNER GREETING
         const text = alert('Welcome to the Game');
+        e.preventDefault();
 
     //sHOWING THE RULES OF THE GAME > NEED TO POST THIS AFTER END
-            const gameRulesDiv = document.getElementById(banner);
+            const div = document.getElementById('banner');
             let p = document.createElement('p');
             p.textContent = 'These are the rules...';
             // return gameRules;
-            gameRulesDiv.appendChild('gameRules'); 
-            //^^^^ HERE IS THE ISSUE******
-    //Test - Check
+            div.appendChild(p); 
+    //Test - Check ---------> Is passed throuhg! But doesen't
+    //                          create anthing!!
             console.log('Working?');
 
 //Back up as this has no problems but works
