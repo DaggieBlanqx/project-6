@@ -1,0 +1,30 @@
+================
+Things Completed
+================
+
+- Made the guess array
+- eventlistener on start to enter the game (Worked with
+     console log)
+
+
+
+
+========================
+Things Needed to be done
+========================
+
+- Show the game prompt instruction &  
+- Show the current lives / score board
+- Show the letter board categories
+
+========================
+Things On the list
+========================
+
+- How to start the game!
+
+- Make a random phrase show up invisible 
+-Have it interact with a button or onscreen keyboard
+- have an array of phrases
+- Have the letters reveal if part of the array
+- 5 guess and you lose
