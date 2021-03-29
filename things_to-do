@@ -5,6 +5,14 @@ Things Completed
 - Made the guess array
 - eventlistener on start to enter the game (Worked with
      console log)
+----------------------------------------------------------
+Start button open changes position to relative & 
+      game prompt instruction  
+          >>> put it in relative and everyting shows
+          >>> But this will confict  the other stuff
+- Show the current lives / score board
+- Show the letter board categories
+- Get it reading the letter selection
 
 
 
@@ -13,18 +21,30 @@ Things Completed
 Things Needed to be done
 ========================
 
-- Show the game prompt instruction &  
-- Show the current lives / score board
-- Show the letter board categories
+- to show the phrases first (Working but not displaying)
+- Make a random phrase show up invisible & choosen
+     at random too (Solve ^ first!)
+
+- Program the interaction to connect with the phrase (Next up)
+--------
+- Disablle the start button after the game started
+- Add the phrases to the list section
+-Need to get rid of teh startbutton 
+header > overlay???
+
+
+
 
 ========================
 Things On the list
 ========================
 
-- How to start the game!
 
-- Make a random phrase show up invisible 
+
 -Have it interact with a button or onscreen keyboard
 - have an array of phrases
 - Have the letters reveal if part of the array
 - 5 guess and you lose
+- Have the option to guess the phrase
+          up front - sacrifce a life
+- Add styling to the game instructions
