@@ -13,6 +13,9 @@ Start button open changes position to relative &
 - Show the current lives / score board
 - Show the letter board categories
 - Get it reading the letter selection
+- need to a visual siginal of how it has changed (NExt)
+- got rid of display of header after pressing the button
+
 
 
 
@@ -21,11 +24,25 @@ Start button open changes position to relative &
 Things Needed to be done
 ========================
 
-- to show the phrases first (Working but not displaying)
+Round #2:
+     ------
+- to show the phrases first (not working)
 - Make a random phrase show up invisible & choosen
-     at random too (Solve ^ first!)
+     at random too (No working!)
+     -------
+- Program the interaction to connect with the phrase (MAKING PROGRESS)
+-Set up the counter (Do what I can)
+     -------
 
-- Program the interaction to connect with the phrase (Next up)
+
+
+LETTER SELECTION
+- have previously selected letters go a different color (Extra)
+- add animation when you press the button (Extra)
+- diable previous attempted tries (Extra)
+- Color code what are the right and wrong guesses (Extra)
+
+
 --------
 - Disablle the start button after the game started
 - Add the phrases to the list section
@@ -39,12 +56,7 @@ header > overlay???
 Things On the list
 ========================
 
-
-
--Have it interact with a button or onscreen keyboard
-- have an array of phrases
 - Have the letters reveal if part of the array
 - 5 guess and you lose
 - Have the option to guess the phrase
           up front - sacrifce a life
-- Add styling to the game instructions
