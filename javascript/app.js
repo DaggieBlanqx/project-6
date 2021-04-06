@@ -1,6 +1,3 @@
-//=====================
-// Phrases Array
-//=====================
 
 //=======Starting Variables=========
 //START GAME VARIABLES
@@ -36,12 +33,9 @@ startGame.addEventListener('click', (e) => {
         console.log('Rules Working');
 
 
-    // NEEDS WORK >>> Stil Not working
-    //DISPLAY THE MESSAGE >>> NOT SHOWING UP!!!!!!
-    //The orginal
+    //DISPLAYS THE ARRAY QUESTION
     const ul = document.querySelector('#phrase ul');
-
-    //YOLO >>> SEE ALL THE ARRAY MESSAGES!!!! >>> BETTER
+    //DISPLAY ARRAY FUNCTION
         function displayPhrases(guessPhrases) {
         for (i = 0; i < guessPhrases.length; i++) {
             let li = document.createElement('li');
@@ -56,55 +50,26 @@ startGame.addEventListener('click', (e) => {
             }
         }
 
+    //CALLING THE DISPLAYPHRASE AT RANDOM
+        displayPhrases(guessPhrases[Math.floor(Math.random() * guessPhrases.length)].split('')); //This shows all phrases >> need it select one
 
-    //SOLID TRY BUT NOT SHOWING PHRASESELECTION
-    // const displayPhrases = phraseSelection => {
-    // //Experimental Try
-    // // const displayPhrases (phraseSelection) {
-    //     for (i = 0; i < phraseSelection.length; i++) {
-    //         let li = document.createElement('li');
-    //         let liItem = document.createTextNode(phraseSelection[i]);
-    //             if (phraseSelection[i] == "") {
-    //                 li.appendChild(liItem);
-    //                 ul.appendChild(li).className = 'space'; 
-    //             } else {
-    //                 li.appendChild(liItem);
-    //                 ul.appendChild(li).className = 'letter'; 
-    //             }
-    //         }
-    //     }
-
-//         var cars = ["Saab", "Volvo", "BMW"];
-// document.getElementById("demo").innerHTML = cars;
-
-    //RANDOMIZE THE DISPLAY >>> NOT SHOWING UP!!!!!
-    // const RandomPhrase = phraseSelection => {
-    //     return phraseSelection[Math.floor(Math.random() * phraseSelection.length)].split('');
-    //With a function???
-    // function RandomPhrase(phraseSelection.length) {
-    //     return phraseSelection[Math.floor(Math.random() * phraseSelection.length)];
-    // }
-
-    //   Just added This >>> IT WORKS!!!! KINDOV
-        //displayPhrases("Appenetly I can't use arrays with this"); //THIS HUBLA WORK!
-        displayPhrases(guessPhrases);
-        // phraseSelection[0];
-        //It keeps getting stuck using phrases I voided out
-
-        //Test
+    //Test
         console.log('Phrases displaying as intended');
-        
         });
 
+        //         var cars = ["Saab", "Volvo", "BMW"];
+        // document.getElementById("demo").innerHTML = cars;
 
-//On screen keyboard  Interaction
+//==================================
+
+//ON SCREEN INTERACTION
  letterSelection.addEventListener('click', (e) => {
 
     //VISUAL REGISTRATION
-    //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH
+    //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH****
     // let selectedButtons = [];
     for (i = 0; i < letterSelection; i += 1) {
-        if (letterSelection === '.keyrow button') {
+        if (letterSelection === '.keyrow') {
            let letterSelection = letterSelection.style.color='red';
             // letterSelection = letterSelection.style.background='red';
         } else { //Add code to prevent them from selecting the same letter twice
@@ -112,8 +77,30 @@ startGame.addEventListener('click', (e) => {
         }
     }
 
-    //CORDINATE IT WITH THE GAME
+    //MATCH THE LETTER SELECTION WITH PHRASE
     
+    function matchInArray (string, expressions) {
+
+                    //WHAT DO I CHOSE>> THE ORIGNAL ARRAY OR THE DISPLAY ARRAY?
+                    const matchExpression = expressions.length;
+                    i = 0;
+            
+                    for (; i < expressions; i++) {
+                        if (string.match(expressions[i]))
+                        {
+                        return true;
+                        }
+                    return false;
+                        }
+                };
+            
+            setTimeout(function() {
+                console.log(matchInArray(thisString, thisExpressions));
+                console.log(matchInArray(thisString, thisExpressions2));
+            }, 200)
+
+
+
     alert('Keep chip chip chipping away!');
 
 
@@ -121,7 +108,6 @@ startGame.addEventListener('click', (e) => {
     //I NEED TO CONNECT IT TO THE ARRAY>>> BUT FOR THE MEAN TIME THE MESAGE IS OK***
 
     
-    //i CAN'T MOVE FORWARD WITH THIS DAMN MESSAGE FROPM THE ARRAY NOT SHOWIGN UP!!!!!!
     // function matchInArray (string, expressions) {
 
     //             const matchExpression = expressions.length;
@@ -210,3 +196,24 @@ startGame.addEventListener('click', (e) => {
 //     }) 
     
 //   });
+
+
+
+
+
+    //SOLID TRY BUT NOT SHOWING PHRASESELECTION
+    // const displayPhrases = phraseSelection => {
+    // //Experimental Try
+    // // const displayPhrases (phraseSelection) {
+    //     for (i = 0; i < phraseSelection.length; i++) {
+    //         let li = document.createElement('li');
+    //         let liItem = document.createTextNode(phraseSelection[i]);
+    //             if (phraseSelection[i] == "") {
+    //                 li.appendChild(liItem);
+    //                 ul.appendChild(li).className = 'space'; 
+    //             } else {
+    //                 li.appendChild(liItem);
+    //                 ul.appendChild(li).className = 'letter'; 
+    //             }
+    //         }
+    //     }
