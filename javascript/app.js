@@ -36,36 +36,60 @@ startGame.addEventListener('click', (e) => {
         console.log('Rules Working');
 
 
-    // NEEDS WORK
+    // NEEDS WORK >>> Stil Not working
     //DISPLAY THE MESSAGE >>> NOT SHOWING UP!!!!!!
-    const displayPhrases = phraseSelection => {
-        for (i = 0; i < phraseSelection.length; i++) {
+    //The orginal
+    const ul = document.querySelector('#phrase ul');
+
+    //YOLO >>> SEE ALL THE ARRAY MESSAGES!!!! >>> BETTER
+        function displayPhrases(guessPhrases) {
+        for (i = 0; i < guessPhrases.length; i++) {
             let li = document.createElement('li');
-            let liItem = document.createTextNode(phraseSelection[i]);
-                if (phraseSelection[i] == " ") {
+            let liItem = document.createTextNode(guessPhrases[i]);
+                if (guessPhrases[i] == "") {
                     li.appendChild(liItem);
-                    parentNode.appendChild(li).className = 'space'; 
+                    ul.appendChild(li).className = 'space'; 
                 } else {
                     li.appendChild(liItem);
-                    parenetNode.appendChild(li).className = 'letter'; 
+                    ul.appendChild(li).className = 'letter'; 
                 }
             }
         }
 
+
+    //SOLID TRY BUT NOT SHOWING PHRASESELECTION
+    // const displayPhrases = phraseSelection => {
+    // //Experimental Try
+    // // const displayPhrases (phraseSelection) {
+    //     for (i = 0; i < phraseSelection.length; i++) {
+    //         let li = document.createElement('li');
+    //         let liItem = document.createTextNode(phraseSelection[i]);
+    //             if (phraseSelection[i] == "") {
+    //                 li.appendChild(liItem);
+    //                 ul.appendChild(li).className = 'space'; 
+    //             } else {
+    //                 li.appendChild(liItem);
+    //                 ul.appendChild(li).className = 'letter'; 
+    //             }
+    //         }
+    //     }
+
+//         var cars = ["Saab", "Volvo", "BMW"];
+// document.getElementById("demo").innerHTML = cars;
+
     //RANDOMIZE THE DISPLAY >>> NOT SHOWING UP!!!!!
-    const RandomPhrase = phraseSelection => {
-        return phraseSelection[Math.floor(Math.random() * phraseSelection.length)].split('');
-    }
+    // const RandomPhrase = phraseSelection => {
+    //     return phraseSelection[Math.floor(Math.random() * phraseSelection.length)].split('');
+    //With a function???
+    // function RandomPhrase(phraseSelection.length) {
+    //     return phraseSelection[Math.floor(Math.random() * phraseSelection.length)];
+    // }
 
-
-    // Works but no display!!!!!
-        //Select an phrase from the list of arrays
-        //Last ditch effort >> it passed but doesn't create the element
-        // const phraseSelection = document.getElementById(phrase);
-        // for (let i = 0; i < guessPhrases.length; i += 1){
-        //     let li = guessPhrases[i];
-        //     guessPhrases[i] = document.textContent;
-        // }
+    //   Just added This >>> IT WORKS!!!! KINDOV
+        //displayPhrases("Appenetly I can't use arrays with this"); //THIS HUBLA WORK!
+        displayPhrases(guessPhrases);
+        // phraseSelection[0];
+        //It keeps getting stuck using phrases I voided out
 
         //Test
         console.log('Phrases displaying as intended');
@@ -77,32 +101,82 @@ startGame.addEventListener('click', (e) => {
  letterSelection.addEventListener('click', (e) => {
 
     //VISUAL REGISTRATION
+    //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH
     // let selectedButtons = [];
     for (i = 0; i < letterSelection; i += 1) {
-        if (letterSelection === '.keyrow') {
-            letterSelection = letterSelection.style.background='red';
+        if (letterSelection === '.keyrow button') {
+           let letterSelection = letterSelection.style.color='red';
+            // letterSelection = letterSelection.style.background='red';
+        } else { //Add code to prevent them from selecting the same letter twice
+            alert("We didn't get that. Try again!");
         }
     }
 
     //CORDINATE IT WITH THE GAME
     
+    alert('Keep chip chip chipping away!');
 
 
+    //Tracker makers (IN PROGRESS)
+    //I NEED TO CONNECT IT TO THE ARRAY>>> BUT FOR THE MEAN TIME THE MESAGE IS OK***
 
-    //Tracker makers
-    const scoreBoard = document.querySelector('#scoreboard');
-    for (i = 0; i < scoreBoard; i++)  {
-        const tries = document.querySelector('.tries');
-        if (letterSelection === 'selectedPhrases') {
-            //NEED TO SPECIFY IN A FUTURE OCASSION > VAR FOR THE RAM SELECTED
-            //ANSWER
-            alter('Great job bud!')
-        } else { 
-            tries -= tries;
-        }
-    }
+    
+    //i CAN'T MOVE FORWARD WITH THIS DAMN MESSAGE FROPM THE ARRAY NOT SHOWIGN UP!!!!!!
+    // function matchInArray (string, expressions) {
+
+    //             const matchExpression = expressions.length;
+    //             i = 0;
+        
+    //             for (; i < expressions; i++) {
+    //                 if (string.match(expressions[i]))
+    //                 {
+    //                 return true;
+    //                 }
+    //             return false;
+    //                 }
+    //         };
+        
+    //     setTimeout(function() {
+    //         console.log(matchInArray(thisString, thisExpressions));
+    //         console.log(matchInArray(thisString, thisExpressions2));
+    //     }, 200)
 
 
+    // THE OLDER WAY THAT DIDN'T WORK REALLY WELL
+    // const scoreBoard = document.querySelector('#scoreboard');
+    // for (i = 0; i < letterSelection; i++)  {
+    //     const tries = document.querySelector('.tries');
+    //     if (letterSelection === displayPhrases) {
+    //         //Code to match letter with the string of the displayPhrase
+
+    //         // the alert feedback
+    //         alter('Great job bud!')
+
+    //         //color the button green for correction >> but disable it
+    //     } else { 
+    //         tries -= tries;
+    //     }
+    // }
+
+    //Test
+    console.log('Need more Coffee Time!');
+
+
+//Collect them and string them together >> array
+
+//disable the option to click on a previous button
+
+// I need to keep it once selecting a new button
+    
+    //TEst
+    });
+
+    console.log('Im toward the end!');
+
+
+//===================================
+
+// SOME EXAMPLES!!!!!!!!!!!!!!
 //     //Add an event lister to the checkboxes change with bubbling
 // ul.addEventListener('change', (e) => {
 //     const checkbox = event.target;
@@ -136,23 +210,3 @@ startGame.addEventListener('click', (e) => {
 //     }) 
     
 //   });
-
-
-
-
-    //Test
-    console.log('Need more Coffee Time!');
-
-
-//Collect them and string them together >> array
-
-//disable the option to click on a previous button
-
-// I need to keep it once selecting a new button
-    
-    //TEst
-    });
-
-    console.log('Im toward the end!');
-
-

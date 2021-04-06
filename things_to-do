@@ -15,7 +15,8 @@ Start button open changes position to relative &
 - Get it reading the letter selection
 - need to a visual siginal of how it has changed (NExt)
 - got rid of display of header after pressing the button
-
+------------------------------------------------
+- Got some test messages working
 
 
 
@@ -24,24 +25,18 @@ Start button open changes position to relative &
 Things Needed to be done
 ========================
 
-Round #2:
+Round #1:
      ------
-- to show the phrases first (not working)
-- Make a random phrase show up invisible & choosen
-     at random too (No working!)
-     -------
-- Program the interaction to connect with the phrase (MAKING PROGRESS)
+- Get the array messages worjking
+- - Program the interaction to connect with the phrase (MAKING PROGRESS)
 -Set up the counter (Do what I can)
+- Visual recongintion is not working (Work on it later)
      -------
-
-
-
 LETTER SELECTION
 - have previously selected letters go a different color (Extra)
 - add animation when you press the button (Extra)
 - diable previous attempted tries (Extra)
 - Color code what are the right and wrong guesses (Extra)
-
 
 --------
 - Disablle the start button after the game started
