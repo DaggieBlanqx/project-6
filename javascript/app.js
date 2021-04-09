@@ -51,14 +51,11 @@ startGame.addEventListener('click', (e) => {
         }
 
     //CALLING THE DISPLAYPHRASE AT RANDOM
-        displayPhrases(guessPhrases[Math.floor(Math.random() * guessPhrases.length)].split('')); //This shows all phrases >> need it select one
+        displayPhrases(guessPhrases[Math.floor(Math.random() * guessPhrases.length)].split(''));
 
     //Test
         console.log('Phrases displaying as intended');
         });
-
-        //         var cars = ["Saab", "Volvo", "BMW"];
-        // document.getElementById("demo").innerHTML = cars;
 
 //==================================
 
@@ -67,7 +64,6 @@ startGame.addEventListener('click', (e) => {
 
     //VISUAL REGISTRATION
     //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH****
-    // let selectedButtons = [];
     for (i = 0; i < letterSelection; i += 1) {
         if (letterSelection === '.keyrow') {
            let letterSelection = letterSelection.style.color='red';
@@ -77,72 +73,80 @@ startGame.addEventListener('click', (e) => {
         }
     }
 
-    //MATCH THE LETTER SELECTION WITH PHRASE
-    
-    function matchInArray (string, expressions) {
+    //MATCH THE LETTER SELECTION WITH PHRASE 
+    //****Maybe need to focus on using the class to show vs hidden/deal with the overlay****
 
-                    //WHAT DO I CHOSE>> THE ORIGNAL ARRAY OR THE DISPLAY ARRAY?
-                    const matchExpression = expressions.length;
-                    i = 0;
-            
-                    for (; i < expressions; i++) {
-                        if (string.match(expressions[i]))
-                        {
-                        return true;
-                        }
+         // IT PASS THE TEST
+         function matchInArray(letterSelection) {
+            for (i = 0; i < guessPhrases.length; i++) {
+                if (letterSelection === guessPhrases[i]) {
+                    console.log(' MatchinArray working?'); //NOT RESPONSIVE > DON'T KNOW WHY
+                    return true;
+                } else { 
                     return false;
-                        }
-                };
-            
-            setTimeout(function() {
-                console.log(matchInArray(thisString, thisExpressions));
-                console.log(matchInArray(thisString, thisExpressions2));
-            }, 200)
-
+                }
+            }
+        }
+                    
+            matchInArray(); //i'M NOT SURE IF CALLED RIGHT
 
 
     alert('Keep chip chip chipping away!');
 
+// CORRECT/INCORRECT INDICATORS
+//+ >>> THE ELSE TEST SHOWS & RESPONSIVE
+//- >>> THE iF TEST NOT WORKING
+function checkLetter(letterSelection) {
+    //Connecting checkAnswer to div (phrase variable)
+    let checkedPhrase = document.querySelector('#phrase ul');
+    //To connect ul to the ul elment > setting up for child elements
+    let ul = document.querySelector('ul');
+    //Focusing on the children elements of the phrase .letter
+    const liLetters = ul.children; //NEED TO ADD THE PSUDO CLASS ROOT
+    if (letterSelection == checkedPhrase) { //<<< THIS IS THE ISSUE <<<<<<<
+        //Change this to the puedoclass :root
+        const liLetters = ul.children.style.color = 'green';
+        return overlayPosition.style.display = 'show';
+    } else {
+        //the letter select changes the puedoclass :root
+        console.log('No False please!'); //THIS WORKS <<<<<<
 
-    //Tracker makers (IN PROGRESS)
-    //I NEED TO CONNECT IT TO THE ARRAY>>> BUT FOR THE MEAN TIME THE MESAGE IS OK***
+    }
+
+}
+
+checkLetter();
+
+ 
+
+//I need to position it & switch it to show on a letter
+// const overlayPosition = document.getElementById('overlay').style.display ='none';
+//letterSelection is needed
+//connect the with the child property ul li 
+
+
+
+
+// for (i = 0; i < guessPhrases.length; i++) {
+    //     if (letterSelection === guessPhrases[i]) {
+    //         guessPhrases[i].className = 'show'; //<<<<<<<
+            
+    //         return true;
+    //         } else { 
+    //             guessPhrases[i].style.display = 'null'; //<<<<<<<<
+    //         return false;
+    //         }
+    // }
 
     
-    // function matchInArray (string, expressions) {
-
-    //             const matchExpression = expressions.length;
-    //             i = 0;
-        
-    //             for (; i < expressions; i++) {
-    //                 if (string.match(expressions[i]))
-    //                 {
-    //                 return true;
-    //                 }
-    //             return false;
-    //                 }
-    //         };
-        
-    //     setTimeout(function() {
-    //         console.log(matchInArray(thisString, thisExpressions));
-    //         console.log(matchInArray(thisString, thisExpressions2));
-    //     }, 200)
+   
 
 
-    // THE OLDER WAY THAT DIDN'T WORK REALLY WELL
-    // const scoreBoard = document.querySelector('#scoreboard');
-    // for (i = 0; i < letterSelection; i++)  {
-    //     const tries = document.querySelector('.tries');
-    //     if (letterSelection === displayPhrases) {
-    //         //Code to match letter with the string of the displayPhrase
+//Use these classes!!!!!! for the tracking
+// .show
+// .chosen
+// .letter
 
-    //         // the alert feedback
-    //         alter('Great job bud!')
-
-    //         //color the button green for correction >> but disable it
-    //     } else { 
-    //         tries -= tries;
-    //     }
-    // }
 
     //Test
     console.log('Need more Coffee Time!');
@@ -154,11 +158,11 @@ startGame.addEventListener('click', (e) => {
 
 // I need to keep it once selecting a new button
     
-    //TEst
+
     });
 
-    console.log('Im toward the end!');
-
+//TEst
+console.log('Im toward the end!');
 
 //===================================
 
