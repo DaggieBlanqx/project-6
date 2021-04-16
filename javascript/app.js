@@ -13,6 +13,8 @@ const guessPhrases = [
     'what are rays coding specailty',
     'arrays dah'
 ];
+const letters = document.querySelector('li .letter');
+const misses = document.querySelector('.misses');
 
 //==================================
 
@@ -50,119 +52,145 @@ startGame.addEventListener('click', (e) => {
             }
         }
 
-    //CALLING THE DISPLAYPHRASE AT RANDOM
+    //RANDOMIZE THE PHRASES
         displayPhrases(guessPhrases[Math.floor(Math.random() * guessPhrases.length)].split(''));
 
     //Test
-        console.log('Phrases displaying as intended');
+        console.log('ITS RANDOM');
         });
 
-//==================================
+    //CHECK LETTER 
 
-//ON SCREEN INTERACTION
- letterSelection.addEventListener('click', (e) => {
+        // HOW TO CONNECT DISPALYPHRASE TOOOOOOO MATCHHHHHHHHH
 
-    //VISUAL REGISTRATION
-    //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH****
-    for (i = 0; i < letterSelection; i += 1) {
-        if (letterSelection === '.keyrow') {
-           let letterSelection = letterSelection.style.color='red';
-            // letterSelection = letterSelection.style.background='red';
-        } else { //Add code to prevent them from selecting the same letter twice
-            alert("We didn't get that. Try again!");
-        }
-    }
-
-    //MATCH THE LETTER SELECTION WITH PHRASE 
-    //****Maybe need to focus on using the class to show vs hidden/deal with the overlay****
-
-         // IT PASS THE TEST
-         function matchInArray(letterSelection) {
-            for (i = 0; i < guessPhrases.length; i++) {
-                if (letterSelection === guessPhrases[i]) {
-                    console.log(' MatchinArray working?'); //NOT RESPONSIVE > DON'T KNOW WHY
-                    return true;
-                } else { 
-                    return false;
-                }
-            }
-        }
-                    
-            matchInArray(); //i'M NOT SURE IF CALLED RIGHT
-
-
-    alert('Keep chip chip chipping away!');
-
-// CORRECT/INCORRECT INDICATORS
-//+ >>> THE ELSE TEST SHOWS & RESPONSIVE
-//- >>> THE iF TEST NOT WORKING
-function checkLetter(letterSelection) {
-    //Connecting checkAnswer to div (phrase variable)
-    let checkedPhrase = document.querySelector('#phrase ul');
-    //To connect ul to the ul elment > setting up for child elements
-    let ul = document.querySelector('ul');
-    //Focusing on the children elements of the phrase .letter
-    const liLetters = ul.children; //NEED TO ADD THE PSUDO CLASS ROOT
-    if (letterSelection == checkedPhrase) { //<<< THIS IS THE ISSUE <<<<<<<
-        //Change this to the puedoclass :root
-        const liLetters = ul.children.style.color = 'green';
-        return overlayPosition.style.display = 'show';
-    } else {
-        //the letter select changes the puedoclass :root
-        console.log('No False please!'); //THIS WORKS <<<<<<
-
-    }
-
-}
-
-checkLetter();
-
- 
-
-//I need to position it & switch it to show on a letter
-// const overlayPosition = document.getElementById('overlay').style.display ='none';
-//letterSelection is needed
-//connect the with the child property ul li 
-
-
-
-
-// for (i = 0; i < guessPhrases.length; i++) {
-    //     if (letterSelection === guessPhrases[i]) {
-    //         guessPhrases[i].className = 'show'; //<<<<<<<
+        let missed = 0;
+        const checkLetter = (button) => {
+            let matched = null;
             
-    //         return true;
-    //         } else { 
-    //             guessPhrases[i].style.display = 'null'; //<<<<<<<<
-    //         return false;
-    //         }
-    // }
+            //SHOULD i USE DISPLAYPHRASE INSTEAD????????????????????????????????????????????
+            // for (i = 0; i < letters.length; i++) {
+            //     if (button === letters[i].textContent.toLowerCase()) {
+            //         letters[i].classList.add('show');
+            //         matched = true;
+            //     }
 
-    
-   
+            // }
+
+            for (i = 0; i < displayPhrases.length; i++) {
+                if (button === displayPhrases[i].textContent.toLowerCase()) {
+                    displayPhrases[i].classList.add('show');
+                    matched = true;
+                }
+
+            }
+            
+            return matched
+            // displayPhrases(matched);
+            //SHOULD THIS BE MATCHES WITH THE DISPALY PHRASE
+
+        };
+
+letterSelection.addEventListener('click', (e) => { 
+    if (e.target.tagName === "BUTTON") {
+        e.target.className = 'chosen';
+        e.target.disable = true;  
+        const match = checkLetter(e.target.textContent.toLowerCase());
+        missed++;
+        
+            if (match === null) {
+                    //CREATE THE NEW LOST HEART ICON
+                    const ol = document.querySelector('#scoreboard ol');
+                    let img = document.createElement('img').className = "correct";
+                    img.src = "images/lostHeart.png";
+                    ol.appendChild(img);
+                    //REMOVE THE LIVE HEART ICON
+                    function  removeImage(scoreboard) {
+                        let removeImg = target.document.queryselector('.tries');
+                        removeImg.parentNode.removeChild(removeImg);
+                        removeImage();
+                    }
+
+            }  else {
+
+                //Have it repeat!!!!!
+
+            }         
+         missed.textContent = missed;
+
+        }
+
+   // make a function to check if I won/lost
+        // checkWin();
+
+});                    
 
 
-//Use these classes!!!!!! for the tracking
-// .show
-// .chosen
-// .letter
 
 
-    //Test
-    console.log('Need more Coffee Time!');
+//++++++++++++++++++++++++++++++++++++++++++
 
 
-//Collect them and string them together >> array
+// Current On screen interation sections
 
-//disable the option to click on a previous button
+// //ON SCREEN INTERACTION
+//  letterSelection.addEventListener('click', (e) => {
 
-// I need to keep it once selecting a new button
-    
+//     //VISUAL REGISTRATION
+//     //NO REGESTERING COLOR ON THE BUTTONS >>> FIX LATER THOUGH****
+//     for (i = 0; i < letterSelection; i += 1) {
+//         if (letterSelection === '.keyrow') {
+//            let letterSelection = letterSelection.style.color='red';
+//             // letterSelection = letterSelection.style.background='red';
+//         } else { //Add code to prevent them from selecting the same letter twice
+//             alert("We didn't get that. Try again!");
+//         }
+//     }
 
-    });
+//     //MATCH THE LETTER SELECTION WITH PHRASE 
+//     //****Maybe need to focus on using the class to show vs hidden/deal with the overlay****
+//          // IT PASS THE TEST
+//          function matchInArray(letterSelection) {
+//             for (i = 0; i < guessPhrases.length; i++) {
+//                 if (letterSelection === guessPhrases[i]) {
+//                     console.log(' MatchinArray working?'); //NOT RESPONSIVE > DON'T KNOW WHY
+//                     return true;
+//                 } else { 
+//                     return false;
+//                 }
+//             }
+//         }
+                    
+//             matchInArray(); //i'M NOT SURE IF CALLED RIGHT
 
-//TEst
-console.log('Im toward the end!');
+//     alert('Keep chip chip chipping away!');
+
+// // CORRECT/INCORRECT INDICATORS
+// //+ >>> THE ELSE TEST SHOWS & RESPONSIVE
+// //- >>> THE iF TEST NOT WORKING
+// function checkLetter(letterSelection) {
+//     //Connecting checkAnswer to div (phrase variable)
+//     let checkedPhrase = document.querySelector('#phrase ul');
+//     //To connect ul to the ul element > setting up for child elements
+//     let ul = document.querySelector('ul');
+//     //Focusing on the children elements of the phrase .letter
+//     const liLetters = ul.children; //NEED TO ADD THE PSUDO CLASS ROOT
+//     if (letterSelection == checkedPhrase) { //<<< THIS IS THE ISSUE <<<<<<<
+//         //Change this to the puedoclass :root
+//         const liLetters = ul.children.style.color = 'green';
+//         return overlayPosition.style.display = 'show';
+//     } else {
+//         //the letter select changes the puedoclass :root (#1)
+//         console.log('No False please!'); //THIS WORKS <<<<<<
+//     }
+// }
+
+// checkLetter();
+
+
+
+//=======================================================
+
+  
 
 //===================================
 
